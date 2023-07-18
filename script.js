@@ -4,7 +4,8 @@ const resetButton = document.getElementById("resetBtn");
 const alarmSound = new Audio("alarm.mp3"); // Replace "alarm.mp3" with the path to your alarm sound file
 
 let timerInterval; // Declare timerInterval variable outside the functions
-let seconds = 15; // Set the initial value to 25 minutes (25 minutes * 60 seconds = 1500 seconds)
+let seconds = 1500; // Set the initial value to 25 minutes (25 minutes * 60 seconds = 1500 seconds)
+
 
 function startTimer() {
     if (timerInterval) {
@@ -15,6 +16,7 @@ function startTimer() {
     timerInterval = setInterval(updateTimer, 1000);
     startButton.disabled = true;
 }
+
 
 function resetTimer() {
     clearInterval(timerInterval); // Stop the timer
@@ -35,6 +37,7 @@ function updateTimer() {
     }
 
     seconds--;
+
     timerElement.textContent = formatTime(seconds);
 }
 
@@ -55,3 +58,7 @@ function playAlarm() {
 
 startButton.addEventListener("click", startTimer);
 resetButton.addEventListener("click", resetTimer);
+
+
+
+
