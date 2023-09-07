@@ -1,71 +1,84 @@
 /* Mobile-first styles (applied to all screen sizes) */
 
 body {
-    font-family: 'Roboto Flex', sans-serif;
-    text-align: center;
-    margin: 0;
-    background-color: #202023;
-    color: #00C6C2;
-    }
-  
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 1000;
-    margin-bottom: 0;
-    text-align: center;
-  }
-  
-  #sessionType {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  #timer {
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #BC0064;
-  }
-  
-  button {
-    font-family: 'Roboto Flex', sans-serif;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 800;
-    margin: 5px;
-    background-color: #424245;
-    color: #edd5dd;
-    border: none;
-    outline: none;
-    cursor: pointer;
+  font-family: 'Roboto Flex', sans-serif;
+  text-align: center;
+  margin: 0;
+  background-color: #202023;
+  color: #00C6C2;
   }
 
-  button:disabled {
-    opacity: .3;
-    cursor: not-allowed;
-  }
-  
-  /* Additional CSS for buttons */
-  .timer {
-    /* Adjust spacing and layout for the main content */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
-    gap: 20px;
-    padding: 20px;
-    max-width: 300px;
-    margin: 0 auto;
+h1 {
+  font-size: 2.5rem;
+  font-weight: 1000;
+  margin-bottom: 0;
+  text-align: center;
+}
 
-  }
+#sessionType {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#timer {
+  font-size: 48px;
+  font-weight: 600;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  color: #BC0064;
+}
+
+
+
+button {
+  font-family: 'Roboto Flex', sans-serif;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 5px;
+  background-color: #424245;
+  color: #edd5dd;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button:active {
+  padding: 9px 19px;
+  margin: 6px;
+  background-color: #42424599;
   
+}
+button:disabled {
+  opacity: .3;
+  cursor: not-allowed;
+}
+
+/* Additional CSS for buttons */
+.timer {
+  /* Adjust spacing and layout for the main content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  gap: 20px;
+  padding: 20px;
+  max-width: 300px;
+  margin: 0 auto;
+
+}
+
+
+
+
+
 /* Additional CSS for buttons */
 main button {
-    display: inline-block;
-  }
-  
-  /* Display buttons side by side */
-  main button + button {
-    margin-left: 10px;
-  }
+  display: inline-block;
+}
+
+/* Display buttons side by side */
+main button + button {
+  margin-left: 10px;
+}
