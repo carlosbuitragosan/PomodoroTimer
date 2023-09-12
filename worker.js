@@ -1,18 +1,13 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-restricted-globals */
-let seconds;
-let isWorkSession;
+
+let isWorkSession = true;
 let timerId;
 const workDuration = 1500;
 const breakDuration = 300;
+let seconds = workDuration;
 
-const init = () => {
-  isWorkSession = true;
-  seconds = workDuration;
-};
-init();
-
-const endOfTimer = () => {
+const setNextSession = () => {
   clearInterval(timerId);
   if (isWorkSession) {
     isWorkSession = false;
@@ -27,10 +22,16 @@ const endOfTimer = () => {
 
 const countdown = () => {
   if (seconds === 1) {
-    endOfTimer();
+    setNextSession();
   } else {
     seconds--;
-    self.postMessage({ action: 'tick', remainingTime: seconds });
+    self.postMessage({
+      action: 'tick',
+      remainingTime: seconds,
+      isWorkSession,
+      workDuration,
+      breakDuration,
+    });
   }
 };
 
