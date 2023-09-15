@@ -1,16 +1,18 @@
+import './side-menu.js';
+
 const startButton = document.querySelector('.button_start');
 const resetButton = document.querySelector('.button_reset');
-const timerEl = document.querySelector('.clock');
+export const timerEl = document.querySelector('.clock');
 const sessionType = document.querySelector('.title__session-type');
 const alarm = new Audio('alarm.mp3');
-const worker = new Worker('worker.js');
+export const worker = new Worker('worker.js');
 const semicircleIndex2 = document.querySelector('.semicircle__index2');
 const semicircleIndex3 = document.querySelector('.semicircle__index3');
 const semicircleIndex4 = document.querySelector('.semicircle__index4');
 let UIAngleIncrement;
 let UIAngle = 0;
 
-const formatTime = (timeInSeconds) => {
+export const formatTime = (timeInSeconds) => {
   const minutes = Math.floor(timeInSeconds / 60);
   const formatSeconds = timeInSeconds % 60;
   return `${minutes}:${formatSeconds < 10 ? '0' : ''}${formatSeconds}`;
@@ -29,8 +31,8 @@ resetButton.addEventListener('click', () => {
 });
 
 startButton.addEventListener('click', (event) => {
-  worker.postMessage({ action: 'start' });
   event.currentTarget.disabled = true;
+  worker.postMessage({ action: 'start' });
 });
 
 const graphicIndicator = (isWorkSession, workDuration, breakDuration) => {
