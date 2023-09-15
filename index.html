@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100;200;300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body class="center">
   <header>
@@ -28,7 +30,37 @@
     <div class="buttons__container">
         <button class="button button_start">START</button>
         <button class="button button_reset">RESET</button>
-    </div>    
+    </div>  
+
+    <div class="menu__customise">
+      <span class=" icon__customise material-symbols-outlined">tune</span>
+      <button class="button__settings">Customise</button>
+    </div>
+
+    
+    <div class="side-menu side-menu_hidden">
+      <header class="form__header">
+        <button class="icon__close_container">
+          <span id="form__icon_close" class="material-symbols-outlined">
+            close
+          </span>
+        </button>
+      </header>
+      <form id="form" name="Customise">
+        <div class="form__container">
+
+          <div class="form__focus_container">
+            <label for="focus">Focus (min)</label>
+            <input id="focus" type="number" step="5" min="" max="60" placeholder="25">
+          </div>
+
+          <div class="form__break_container">
+            <label for="break">Break (min)</label>
+            <input id="break" type="number" step="5" min="" max="30" placeholder="5">
+          </div>
+        </div>
+      </form>
+    </div>
     <script src="script.js" type="module" defer></script>
 </body>
 </html>

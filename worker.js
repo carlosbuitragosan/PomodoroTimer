@@ -3,8 +3,10 @@
 
 let isWorkSession = true;
 let timerId;
-const workDuration = 1500;
-const breakDuration = 300;
+let workDuration;
+let breakDuration;
+workDuration = 1500;
+breakDuration = 300;
 let seconds = workDuration;
 
 const setNextSession = () => {
@@ -42,5 +44,18 @@ const startTimer = () => {
 self.addEventListener('message', (event) => {
   if (event.data.action === 'start') {
     startTimer();
+  }
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data.action === 'customiseWork') {
+    workDuration = event.data.customiseWork;
+    seconds = workDuration;
+  }
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data.action === 'customiseBreak') {
+    breakDuration = event.data.customiseBreak;
   }
 });
