@@ -8,6 +8,7 @@ const customiseBreakInput = document.querySelector('#break');
 
 toggleMenuButton.addEventListener('click', () => {
   sideMenu.classList.toggle('side-menu_hidden');
+  autoCloseMenu(120);
 });
 
 CloseSideMenuButton.addEventListener('click', () => {
@@ -24,3 +25,11 @@ customiseBreakInput.addEventListener('input', (event) => {
   const customiseBreak = event.currentTarget.value * 60;
   worker.postMessage({ action: 'customiseBreak', customiseBreak });
 });
+
+const autoCloseMenu = (seconds) => {
+  if (!sideMenu.classList.value.includes('side-menu_hidden')) {
+    setTimeout(() => {
+      sideMenu.classList.add('side-menu_hidden');
+    }, seconds * 1000);
+  }
+};
