@@ -186,6 +186,9 @@ body {
   border-radius: 50%;
   border: 1px solid #202023;
   background-color: #ecfffe;
+  min-width: 2rem;
+  min-height: 2rem;
+
 }
 
 #break,
