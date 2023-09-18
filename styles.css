@@ -1,71 +1,222 @@
-/* Mobile-first styles (applied to all screen sizes) */
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto Flex', sans-serif;
+}
 
 body {
-    font-family: 'Roboto Flex', sans-serif;
-    text-align: center;
-    margin: 0;
-    background-color: #202023;
-    color: #00C6C2;
-    }
-  
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 1000;
-    margin-bottom: 0;
-    text-align: center;
-  }
-  
-  #sessionType {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  #timer {
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #BC0064;
-  }
-  
-  button {
-    font-family: 'Roboto Flex', sans-serif;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 800;
-    margin: 5px;
-    background-color: #424245;
-    color: #edd5dd;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
+  background-color: #202023;
+  flex-direction: column;
+  gap: .5rem;
+}
 
-  button:disabled {
-    opacity: .3;
-    cursor: not-allowed;
-  }
-  
-  /* Additional CSS for buttons */
-  .timer {
-    /* Adjust spacing and layout for the main content */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
-    gap: 20px;
-    padding: 20px;
-    max-width: 300px;
-    margin: 0 auto;
+.main-title {
+  color: #00C6C2;
+  font-size: 2.5rem;
+}
 
-  }
+.clock {
+  color: #BC0064;
+  font-size: 3rem;
+}
+
+.title__session-type {
+  color: #C0FCF9;
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+
+.button {
+  padding: .5rem 1rem;
+  background-color: #008F8D;
+  border: none;
+  outline: none;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #C0FCF9;
+  display: inline-block;
+  margin: 0 .6rem;
+}
+
+.button:active {
+  padding: .4rem .9rem;
+  margin-right: .8rem;
+}
+
+.button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+
+}
+
+.buttons__container {
+  /* padding: 3rem 0; */
+  margin-top: 15vh;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+   align-items: center;
+}
+
+.main-container {
+  flex-direction: column;
+  margin-top: 10vh;
+}
+
+.circle__container_index1 {
+  width: 12em;
+  height: 12em;
+  background-color: #00C6C2;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.clock {
+  z-index: 6;
+  margin: 0;
+}
+
+.title__session-type {
+  z-index: 6;
+}
+
+.semicircle {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: right center;
+}
+
+.semicircle__index2 {
+  background-color: #202023;
+  z-index: 2;
+}
+.semicircle__index3 {
+  background-color: #202023;
+  z-index: 3;
+}
+
+.semicircle__index4 {
+  background-color: #00C6C2;
+  z-index: 4;
+}
+
+.top-circle_black {
+  width: 11.6em;
+  height: 11.6em;
+  background-color: #202023;
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.menu__customise {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: 100;
+}
+
+.button__settings {
+  background-color: transparent;
+  border: none;
+  color: #00C6C2;
+  cursor: pointer;
+}
+
+.icon__customise {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  color: #00C6C2;
+}
+
+.menu__customise {
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+.side-menu {
+  position: absolute;
+  background-color: #00C6C2;
+  left: 0;
+  top: 0;
+  width: 40%;
+  height: 100vh;
+  z-index: 7;
+  opacity: .9;
+  display: grid;0
+  grid-template-rows: 30% 70%;
+}
+
+.side-menu_hidden {
+  display: none;
+}
+.form__focus_container,
+.form__break_container {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%
+}
+
+.form__header {
+  justify-self: end;
+  margin: 1rem;
+  min-width: 3rem;
+  min-height: 3rem;
+}
+
+#form__icon_close {
+  font-size: 2rem;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 24;
   
-/* Additional CSS for buttons */
-main button {
-    display: inline-block;
+}
+
+.icon__close_container {
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid #202023;
+  background-color: #ecfffe;
+  min-width: 2rem;
+  min-height: 2rem;
+
+}
+
+#break,
+#focus {
+  background-color: #ecfffe;
+}
+.form__container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+#break,
+#focus {
+  padding: .5rem;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 1.5rem;
+}
+label {
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 700px) {
+  .side-menu {
+    width: 90%;
   }
-  
-  /* Display buttons side by side */
-  main button + button {
-    margin-left: 10px;
-  }
+}
