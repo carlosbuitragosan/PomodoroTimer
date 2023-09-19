@@ -26,8 +26,17 @@ const toggleSessions = (time, nextSession) => {
   startButton.disabled = false;
 };
 
+export const resetTimer = () => {
+  timerEl.textContent = '25:00';
+  document.title = 'Pomodoro Timer';
+  sessionType.textContent = 'Focus';
+  resetGraphicIndicator();
+  startButton.disabled = false;
+};
+
 resetButton.addEventListener('click', () => {
-  window.location.reload();
+  worker.postMessage({ action: 'reset' });
+  resetTimer();
 });
 
 startButton.addEventListener('click', (event) => {
@@ -50,22 +59,23 @@ const graphicIndicator = (isWorkSession, workDuration, breakDuration) => {
   }
 };
 
+const resetGraphicIndicator = () => {
+  semicircleIndex2.style.transform = 'rotate(0deg)';
+  semicircleIndex3.style.transform = 'rotate(0deg)';
+  semicircleIndex4.style.display = 'block';
+  UIAngle = 0;
+};
+
 const SwitchSessions = (action, seconds) => {
   if (action === 'workEnded') {
     const breakDuration = seconds;
     toggleSessions(breakDuration, 'Break');
-    semicircleIndex2.style.transform = 'rotate(0deg)';
-    semicircleIndex3.style.transform = 'rotate(0deg)';
-    semicircleIndex4.style.display = 'block';
-    UIAngle = 0;
+    resetGraphicIndicator();
   }
   if (action === 'breakEnded') {
     const workDuration = seconds;
     toggleSessions(workDuration, 'Focus');
-    semicircleIndex2.style.transform = 'rotate(0deg)';
-    semicircleIndex3.style.transform = 'rotate(0deg)';
-    semicircleIndex4.style.display = 'block';
-    UIAngle = 0;
+    resetGraphicIndicator();
   }
 };
 

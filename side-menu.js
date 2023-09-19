@@ -1,4 +1,4 @@
-import { formatTime, timerEl, worker } from './script.js';
+import { formatTime, timerEl, worker, resetTimer } from './script.js';
 
 const toggleMenuButton = document.querySelector('.menu__customise');
 const sideMenu = document.querySelector('.side-menu');
@@ -8,6 +8,12 @@ const customiseBreakInput = document.querySelector('#break');
 
 toggleMenuButton.addEventListener('click', () => {
   sideMenu.classList.toggle('side-menu_hidden');
+  // worker.postMessage({ action: 'reset' });
+  // resetTimer();
+  if (!sideMenu.classList.value.includes('side-menu_hidden')) {
+    worker.postMessage({ action: 'reset' });
+    resetTimer();
+  }
   autoCloseMenu(120);
 });
 
