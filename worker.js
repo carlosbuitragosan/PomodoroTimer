@@ -41,6 +41,10 @@ const startTimer = () => {
   timerId = setInterval(countdown, 1000);
 };
 
+const stopTimer = () => {
+  clearInterval(timerId);
+};
+
 self.addEventListener('message', (event) => {
   if (event.data.action === 'start') {
     startTimer();
@@ -57,5 +61,13 @@ self.addEventListener('message', (event) => {
 self.addEventListener('message', (event) => {
   if (event.data.action === 'customiseBreak') {
     breakDuration = event.data.customiseBreak;
+  }
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data.action === 'reset') {
+    stopTimer();
+    isWorkSession = true;
+    seconds = workDuration;
   }
 });
