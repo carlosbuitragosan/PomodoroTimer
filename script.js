@@ -1,4 +1,4 @@
-import './side-menu.js';
+import { customiseWork } from './side-menu.js';
 
 const startButton = document.querySelector('.button_start');
 const resetButton = document.querySelector('.button_reset');
@@ -26,8 +26,8 @@ const toggleSessions = (time, nextSession) => {
   startButton.disabled = false;
 };
 
-export const resetTimer = () => {
-  timerEl.textContent = '25:00';
+export const resetTimer = (workDuration = '25:00') => {
+  timerEl.textContent = workDuration;
   document.title = 'Pomodoro Timer';
   sessionType.textContent = 'Focus';
   resetGraphicIndicator();
@@ -36,7 +36,11 @@ export const resetTimer = () => {
 
 resetButton.addEventListener('click', () => {
   worker.postMessage({ action: 'reset' });
-  resetTimer();
+  if (customiseWork > 0) {
+    resetTimer(formatTime(customiseWork));
+  } else {
+    resetTimer();
+  }
 });
 
 startButton.addEventListener('click', (event) => {
